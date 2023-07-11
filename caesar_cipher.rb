@@ -1,6 +1,13 @@
-> caesar_cipher("What a string!", 5)
-=> "Bmfy f xywnsl!"
-
-You will need to remember how to convert a string into a number.
-Don’t forget to wrap from z to a.
-Don’t forget to keep the same case.
+def caesar_cipher(string, offset)
+  output = ''
+  string.each_char {|letter| 
+    if letter.match(/[a-z]/)
+      output += (letter.ord + offset > 122) ? ((letter.ord + offset - 122) + 96).chr : (letter.ord + offset).chr
+    elsif letter.match(/[A-Z]/)
+      output += (letter.ord + offset > 90) ? ((letter.ord + offset - 90) + 64).chr : (letter.ord + offset).chr
+    else
+      output += letter
+    end
+   }
+  return output
+end
