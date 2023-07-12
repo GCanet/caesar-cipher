@@ -1,6 +1,6 @@
 def caesar_cipher(string, offset)
   output = ''
-  string.each_char {|letter| 
+  string.each_char do |letter| 
     if letter.match(/[a-z]/)
       output += (letter.ord + offset > 122) ? ((letter.ord + offset - 122) + 96).chr : (letter.ord + offset).chr
     elsif letter.match(/[A-Z]/)
@@ -8,6 +8,5 @@ def caesar_cipher(string, offset)
     else
       output += letter
     end
-   }
   return output
 end
